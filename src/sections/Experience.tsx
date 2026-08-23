@@ -3,7 +3,7 @@ import { jobs } from '../data';
 export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-4xl px-4 py-24">
-      <h2 className="mb-12 text-center text-3xl font-bold text-accent">Experiência Profissional</h2>
+      <h2 className="mb-12 text-center text-3xl font-bold text-accent">Professional Experience</h2>
       <div className="relative border-l-2 border-accent pl-8">
         {jobs.map(job => (
           <div key={`${job.company}-${job.period}`} className="relative mb-8 last:mb-0">

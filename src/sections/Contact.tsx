@@ -5,15 +5,15 @@ const EMAIL = 'raafadev@gmail.com';
 const LINKS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/raf4ael-ventura/', icon: FaLinkedin },
   { name: 'GitHub', url: 'https://github.com/rafael-ventura', icon: FaGithub },
-  { name: 'Baixar Currículo', url: '/resume.pdf', icon: FaDownload },
+  { name: 'Download Resume', url: '/resume.pdf', icon: FaDownload },
 ];
 
 export function Contact() {
   return (
     <section id="contact" className="px-4 py-24 text-center">
-      <h2 className="mb-2 text-3xl font-bold text-accent">Contato.</h2>
+      <h2 className="mb-2 text-3xl font-bold text-accent">Contact.</h2>
       <p className="mb-6 text-lg text-muted">
-        Quer saber mais ou trabalhar comigo? Fique à vontade para entrar em contato!
+        Want to know more or work together? Feel free to reach out!
       </p>
       <a
         href={`mailto:${EMAIL}`}

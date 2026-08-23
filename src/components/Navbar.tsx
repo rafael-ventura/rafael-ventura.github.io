@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
 const LINKS = [
-  { id: 'home', label: 'Início' },
-  { id: 'about', label: 'Sobre' },
-  { id: 'experience', label: 'Experiência' },
-  { id: 'projects', label: 'Projetos' },
-  { id: 'contact', label: 'Contato' },
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
 ];
 
 const NAVBAR_HEIGHT = 80;

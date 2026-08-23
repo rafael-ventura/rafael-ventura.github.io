@@ -1,31 +1,30 @@
 import { useState } from 'react';
 import { FaGraduationCap, FaLanguage, FaCode } from 'react-icons/fa';
 import { SectionHeader } from '../components/SectionHeader';
-import { skills, skillCategories, skillGroups } from '../data';
+import { skills, skillCategories } from '../data';
 
 const EDUCATION = [
   {
-    degree: 'Bacharelado em Sistemas de Informação',
-    institution: 'UNIRIO',
-    period: 'Abril 2025',
+    degree: "Bachelor's Degree in Information Systems",
+    institution: 'UNIRIO (Universidade Federal do Estado do Rio de Janeiro)',
+    period: 'Completed July 2025',
     description:
-      'Formação sólida em fundamentos da computação, desenvolvimento de software e gestão de sistemas de informação.',
+      'Solid foundation in computer science fundamentals, software development, and information systems management.',
   },
 ];
 
-const EXTRACURRICULAR = [
+const CERTIFICATIONS = [
   {
-    degree: 'Cambridge Assessment English Level 1 Certificate',
+    degree: 'Cambridge Assessment English, C1 Level Certificate',
     institution: 'Cambridge',
-    period: 'Janeiro 2018',
-    description: 'Certificação de proficiência em inglês, demonstrando habilidades avançadas no idioma.',
+    period: 'January 2018',
+    description: 'English proficiency certification, C1 (advanced) level.',
   },
 ];
 
 const LANGUAGES = [
-  { name: 'Português', level: 'Fluente' },
-  { name: 'Inglês', level: 'Avançado' },
-  { name: 'Espanhol', level: 'Iniciante' },
+  { name: 'Portuguese', level: 'Native' },
+  { name: 'English', level: 'Advanced' },
 ];
 
 function Subtitle({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
@@ -42,30 +41,31 @@ export function About() {
 
   return (
     <section id="about" className="mx-auto max-w-6xl px-4 py-24">
-      <SectionHeader title="Sobre Mim" subtitle="Conheça minha jornada" />
+      <SectionHeader title="About Me" subtitle="Get to know my journey" />
 
       <div className="mb-16 grid grid-cols-1 items-start gap-12 md:grid-cols-[2fr_1fr]">
         <div>
           <p className="mb-6 text-lg leading-relaxed text-muted">
-            Desenvolvedor Full Stack com 7 anos de experiência no setor financeiro, especializado em .NET,
-            JavaScript e arquitetura escalável. Atuei no desenvolvimento de sistemas críticos de previdência,
-            investimentos e pagamentos, desde aplicações monolíticas até microsserviços e sistemas orientados a
-            eventos.
+            Software engineer with professional experience since 2019, mostly built on financial and logistics
+            systems where reliability genuinely matters — from legacy .NET Framework monoliths to modern
+            microservices, asynchronous processing, and event-driven messaging.
           </p>
           <p className="text-lg leading-relaxed text-muted">
-            Atualmente, sou Engenheiro de Software e mentor na iUUL, liderando equipes e desafios técnicos em um
-            programa de residência. Possuo forte atuação na gestão de sprints, melhoria de processos e suporte
-            estratégico ao desenvolvimento, sempre promovendo um ambiente colaborativo e de crescimento contínuo.
+            Currently a Fullstack Software Engineer at Nstech, working on MultiCTe, a multi-tenant TMS (Transport
+            Management System) serving 100+ logistics clients — taking part in the transformation of a large legacy
+            monolith into microservices, RabbitMQ-based messaging, and production incident investigation. Comfortable
+            across the frontend too (Angular, React), and lately exploring AI-assisted development workflows with
+            Claude Code day to day.
           </p>
         </div>
         <div className="rounded-xl border border-secondary/20 bg-secondary/10 p-6 text-center">
           <span className="block text-4xl font-bold text-accent">7+</span>
-          <span className="text-sm text-muted">Anos de Experiência</span>
+          <span className="text-sm text-muted">Years of Experience</span>
         </div>
       </div>
 
       <div className="mb-16">
-        <Subtitle icon={<FaGraduationCap />}>Formação Acadêmica</Subtitle>
+        <Subtitle icon={<FaGraduationCap />}>Education</Subtitle>
         <div className="grid grid-cols-1 gap-8 rounded-xl border border-secondary/20 bg-surface p-8 sm:grid-cols-2">
           {EDUCATION.map(item => (
             <div key={item.degree} className="text-center">
@@ -79,9 +79,9 @@ export function About() {
       </div>
 
       <div className="mb-16">
-        <Subtitle icon={<FaGraduationCap />}>Formação Extracurricular</Subtitle>
+        <Subtitle icon={<FaGraduationCap />}>Certifications</Subtitle>
         <div className="grid grid-cols-1 gap-8 rounded-xl border border-secondary/20 bg-surface p-8 sm:grid-cols-2">
-          {EXTRACURRICULAR.map(item => (
+          {CERTIFICATIONS.map(item => (
             <div key={item.degree} className="text-center">
               <h4 className="mb-1 text-lg text-accent">{item.degree}</h4>
               <p className="mb-1 font-medium text-secondary">{item.institution}</p>
@@ -93,7 +93,7 @@ export function About() {
       </div>
 
       <div className="mb-16">
-        <Subtitle icon={<FaLanguage />}>Idiomas</Subtitle>
+        <Subtitle icon={<FaLanguage />}>Languages</Subtitle>
         <div className="flex flex-wrap justify-center gap-6">
           {LANGUAGES.map(lang => (
             <div
@@ -107,21 +107,9 @@ export function About() {
         </div>
       </div>
 
-      <div className="mb-16">
-        <Subtitle icon={<FaCode />}>Habilidades Técnicas</Subtitle>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {skillGroups.map(group => (
-            <div key={group.title} className="flex min-h-[200px] flex-col rounded-xl border border-secondary/20 bg-surface p-5">
-              <h4 className="mb-3 text-center text-lg text-accent">{group.title}</h4>
-              <p className="flex-grow text-sm leading-relaxed text-muted">{group.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div>
         <h3 className="mb-4 flex items-center justify-center gap-2 text-center text-2xl text-accent">
-          <FaCode /> Linguagens & Ferramentas
+          <FaCode /> Skills
         </h3>
         <div className="mb-8 flex flex-wrap justify-center gap-2">
           {skillCategories.map(cat => (
