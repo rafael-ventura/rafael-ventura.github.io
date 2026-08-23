@@ -1,37 +1,37 @@
 # Portfolio — Rafael Ventura
 
-Site pessoal de uma página só: hero, sobre, experiência, projetos e contato. Reescrito de Vue 3
-para **React 19 + TypeScript + Vite + Tailwind CSS v4**, mantendo o mesmo conteúdo e identidade
-visual (tema escuro navy/indigo/rosa, tipografia Raleway + Lato).
+Single-page personal site: hero, about, experience, projects, contact. Rewritten from Vue 3 to
+**React 19 + TypeScript + Vite + Tailwind CSS v4**, keeping the same content and visual identity
+(dark navy/indigo/pink theme, Raleway + Lato typography).
 
-## Estrutura
+## Structure
 
 ```
 src/
   components/    # Navbar, Footer, SectionHeader, ProjectCard, TypingText, BackgroundParticles
-  sections/       # Hero, About, Experience, Projects, Contact — uma por seção da página
-  data.ts         # skills, projects, jobs — conteúdo em um só lugar
-  App.tsx         # compõe as seções
+  sections/      # Hero, About, Experience, Projects, Contact — one per page section
+  data.ts        # skills, projects, jobs — content in one place
+  App.tsx        # composes the sections
   main.tsx
 public/
   profile.jpeg, livros.png (favicon), resume.pdf
-server/           # API Node/Express separada (contato + widget Spotify) — não tocada nesta reescrita
+server/          # separate Node/Express API (contact form + Spotify widget) — not touched in this rewrite
 ```
 
-## Como rodar
+## How to run
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # build de produção em dist/
+npm run build    # production build in dist/
 ```
 
-## Notas
+## Notes
 
-- Sem rota client-side: é uma página única com navegação por âncora (`#about`, `#projects`, …),
-  mesmo comportamento que o `vue-router` anterior já tinha na prática (todas as rotas redirecionavam
-  pra `/`).
-- `server/` (Node/Express, endpoints `/send-email` e `/generate-token`) não foi alterado nesta
-  reescrita — hoje não é chamado pelo frontend (o CORS nele está configurado para outro domínio,
-  restos de um template). Se for reativar contato por formulário ou o widget "tocando agora" do
-  Spotify, vale revisar esse serviço antes.
+- No client-side routing: it's a single page with anchor navigation (`#about`, `#projects`, …),
+  matching how the previous `vue-router` setup already behaved in practice (every route
+  redirected to `/`).
+- `server/` (Node/Express, `/send-email` and `/generate-token` endpoints) wasn't touched in this
+  rewrite — it isn't called from the frontend today (its CORS config points at a different
+  domain, leftover from a template). Worth reviewing before reactivating the contact form or the
+  Spotify "now playing" widget.
