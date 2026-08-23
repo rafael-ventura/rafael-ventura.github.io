@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;700;900&family=Lato:wght@100;300;400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0f172a;
+  --color-secondary: #6366f1;
+  --color-accent: #ff66cc;
+  --color-surface: #21293b;
+  --color-text: #f1f5f9;
+  --color-muted: #808ea3;
+  --font-display: "Raleway", sans-serif;
+  --font-body: "Lato", sans-serif;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+@keyframes particle-drift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+.animate-particle-drift {
+  animation: particle-drift 4s ease-in-out infinite alternate;
+}
