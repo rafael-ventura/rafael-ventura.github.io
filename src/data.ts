@@ -99,7 +99,7 @@ export interface Job {
 
 export const jobs: Job[] = [
   {
-    title: 'Software Engineer',
+    title: 'Senior Fullstack Engineer',
     company: 'multitms by nstech',
     period: 'Sep 2025 to present',
     location: 'Remote',
@@ -116,7 +116,7 @@ export const jobs: Job[] = [
     stack: ['C#', '.NET Framework 4.7', '.NET 6/7/8', 'RabbitMQ', 'MassTransit', 'SQL Server', 'NHibernate', 'Redis', 'Claude Code'],
   },
   {
-    title: 'Software Engineer',
+    title: 'Senior Fullstack Engineer',
     company: 'iUUL',
     period: 'Sep 2024 to Sep 2025',
     location: 'Remote',
@@ -132,9 +132,9 @@ export const jobs: Job[] = [
     stack: ['C#', '.NET 8', 'Angular', 'TypeScript', 'MongoDB', 'AWS', 'Azure DevOps'],
   },
   {
-    title: 'Software Engineer',
+    title: 'Mid-Level Fullstack Engineer',
     company: 'JJ4Tech',
-    period: 'Sep 2022 to Jan 2024',
+    period: 'Jun 2022 to Feb 2024',
     location: 'Remote',
     context:
       'Instant payments fintech integrated with FedNow, following ISO 20022, built on asynchronous messaging and event-driven architecture.',
@@ -148,7 +148,7 @@ export const jobs: Job[] = [
     stack: ['C#', '.NET 6/7', 'RabbitMQ', 'MassTransit', 'IBM MQ', 'MediatR', 'SpecFlow', 'Grafana', 'AWS'],
   },
   {
-    title: 'Software Engineer',
+    title: 'Junior Fullstack Engineer',
     company: 'Sinqia',
     period: 'Jan 2021 to May 2022',
     location: 'Remote',
@@ -162,7 +162,7 @@ export const jobs: Job[] = [
     stack: ['C#', '.NET 5/6', '.NET Framework 4.7', 'SQL Server', 'EF Core', 'MongoDB', 'Angular'],
   },
   {
-    title: 'Systems Analyst Intern',
+    title: 'Intern Fullstack Engineer',
     company: 'Itaú Unibanco',
     period: 'Jan 2019 to Dec 2020',
     location: 'Rio de Janeiro, on-site',
