@@ -85,6 +85,17 @@ export const projects: Project[] = [
     stack: ['.NET', 'MassTransit', 'RabbitMQ', 'EF Core', 'SQL Server', 'Aspire'],
     github: 'https://github.com/rafael-ventura/guilda-mensageria-microservices',
   },
+  {
+    title: 'Claude Code Setup',
+    summary: 'My AI-assisted development setup for Claude Code, versioned and installable on any machine with one script.',
+    points: [
+      'Spec-driven workflow as skills: spec, plan, tasks and implement, each stopping for review',
+      'Guardian hooks that block secret file edits, commits with staged secrets and force-pushes to main',
+      'A messaging reviewer agent for idempotency, retries, poison messages and saga compensation',
+    ],
+    stack: ['Claude Code', 'MCP', 'Node.js', 'PowerShell', 'Serena', 'Roslyn'],
+    github: 'https://github.com/rafael-ventura/claude-setup',
+  },
 ];
 
 export interface Job {

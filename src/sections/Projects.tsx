@@ -8,7 +8,7 @@ export function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-4 py-24">
       <SectionHeader eyebrow="Outside work" title="Personal projects" />
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {projects.map((project, i) => (
           <BlurFade key={project.title} inView delay={i * 0.1} className="h-full">
             <ProjectCard project={project} />
