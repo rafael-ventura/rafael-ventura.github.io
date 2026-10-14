@@ -1,37 +1,116 @@
-import { TypingText } from '../components/TypingText';
-
-const NAVBAR_HEIGHT = 80;
+import { FaEnvelope, FaGithub, FaLinkedin, FaLocationDot } from 'react-icons/fa6';
+import BlurText from '@/components/ui/blur-text';
+import { BlurFade } from '@/components/ui/blur-fade';
+import { DotPattern } from '@/components/ui/dot-pattern';
+import { profile, metrics } from '@/data';
 
 export function Hero() {
-  const goToAbout = () => {
-    const el = document.getElementById('about');
-    if (el) window.scrollTo({ top: el.offsetTop - NAVBAR_HEIGHT, behavior: 'smooth' });
-  };
-
   return (
-    <section id="home" className="flex min-h-screen items-center justify-center px-4 py-12">
-      <div className="mx-auto flex w-full max-w-5xl flex-col-reverse items-center justify-between gap-8 rounded-lg border border-white/20 bg-primary/70 p-8 backdrop-blur-md md:flex-row">
-        <div className="flex-[1.5] text-center md:text-left">
-          <TypingText text="Hello World." />
-          <h2 className="mt-6 text-3xl font-semibold md:text-4xl">I'm Rafael Siqueira</h2>
-          <p className="mt-4 text-xl text-muted">
-            Fullstack Software Engineer
-          </p>
-          <button
-            onClick={goToAbout}
-            className="mt-8 rounded-lg bg-accent px-8 py-4 text-lg font-bold text-primary transition-colors hover:bg-primary hover:text-secondary hover:border hover:border-secondary"
-          >
-            Learn More
-          </button>
+    <section id="home" className="relative overflow-hidden px-4 pb-20 pt-32 md:pt-40">
+      <DotPattern
+        width={22}
+        height={22}
+        className="text-secondary/40 [mask-image:radial-gradient(600px_circle_at_30%_30%,white,transparent)]"
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        <div className="flex flex-col-reverse items-start gap-10 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <BlurFade delay={0.1}>
+              <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                {profile.availability}
+              </span>
+            </BlurFade>
+
+            <h1 className="sr-only">
+              {profile.name}, {profile.role}
+            </h1>
+            <BlurText
+              text={profile.name}
+              delay={120}
+              animateBy="letters"
+              className="font-display text-5xl font-extrabold tracking-tight text-text md:text-7xl"
+            />
+
+            <BlurFade delay={0.6}>
+              <p className="mt-4 text-xl font-semibold text-accent md:text-2xl">{profile.role}</p>
+              <p className="mt-4 text-lg leading-relaxed text-muted">{profile.tagline}</p>
+              <p className="mt-3 flex items-center gap-2 text-sm text-muted">
+                <FaLocationDot aria-hidden /> {profile.location} · Remote
+              </p>
+            </BlurFade>
+
+            <BlurFade delay={0.8}>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="#experience"
+                  className="rounded-lg bg-accent px-6 py-3 font-bold text-primary transition-opacity hover:opacity-90"
+                >
+                  See my work
+                </a>
+                <a
+                  href={profile.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-white/15 px-6 py-3 font-bold text-text transition-colors hover:border-accent"
+                >
+                  Resume
+                </a>
+                <div className="ml-1 flex items-center gap-1">
+                  <IconLink href={`mailto:${profile.email}`} label="Email">
+                    <FaEnvelope size={20} />
+                  </IconLink>
+                  <IconLink href={profile.linkedin} label="LinkedIn">
+                    <FaLinkedin size={20} />
+                  </IconLink>
+                  <IconLink href={profile.github} label="GitHub">
+                    <FaGithub size={20} />
+                  </IconLink>
+                </div>
+              </div>
+            </BlurFade>
+          </div>
+
+          <BlurFade delay={0.3}>
+            <img
+              src={profile.photo}
+              alt={`Photo of ${profile.name}`}
+              className="h-36 w-36 rounded-full border-2 border-accent/60 object-cover shadow-2xl shadow-accent/10 md:h-56 md:w-56"
+            />
+          </BlurFade>
         </div>
-        <div className="flex flex-1 justify-center">
-          <img
-            src="/profile.jpeg"
-            alt="Rafael's photo"
-            className="h-[220px] w-[220px] rounded-full border-4 border-accent object-cover shadow-lg"
-          />
-        </div>
+
+        <ul aria-label="Selected results" className="mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {metrics.map((m, i) => (
+            <li key={m.source}>
+              <BlurFade
+                delay={1 + i * 0.1}
+                className="h-full rounded-xl border border-white/10 bg-surface/60 p-5 backdrop-blur-sm"
+              >
+                <p className="font-display text-3xl font-extrabold text-text">{m.value}</p>
+                <p className="mt-1 text-sm text-muted">{m.label}</p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-secondary">{m.source}</p>
+              </BlurFade>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
+  );
+}
+
+function IconLink({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
+  const external = href.startsWith('http');
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      title={label}
+      {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
+      className="rounded-md p-2 text-muted transition-colors hover:text-accent"
+    >
+      {children}
+    </a>
   );
 }

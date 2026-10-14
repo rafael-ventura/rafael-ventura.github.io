@@ -1,13 +1,15 @@
+import { BlurFade } from '@/components/ui/blur-fade';
+
 interface SectionHeaderProps {
+  eyebrow: string;
   title: string;
-  subtitle?: string;
 }
 
-export function SectionHeader({ title, subtitle }: SectionHeaderProps) {
+export function SectionHeader({ eyebrow, title }: SectionHeaderProps) {
   return (
-    <div className="text-center mb-10">
-      <h2 className="text-4xl font-bold text-accent mb-2">{title}</h2>
-      {subtitle && <p className="text-lg text-muted">{subtitle}</p>}
-    </div>
+    <BlurFade inView className="mb-12">
+      <p className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
+      <h2 className="text-3xl font-bold text-text md:text-4xl">{title}</h2>
+    </BlurFade>
   );
 }

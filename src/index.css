@@ -1,15 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;700;900&family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Lato:wght@300;400;700&family=Cormorant+Garamond:wght@600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-primary: #0f172a;
   --color-secondary: #6366f1;
   --color-accent: #ff66cc;
-  --color-surface: #21293b;
+  --color-surface: #1a2234;
   --color-text: #f1f5f9;
-  --color-muted: #808ea3;
+  --color-muted: #94a3b8;
+
+  /* Used by Magic UI components (MagicCard) */
+  --color-background: #141c2d;
+  --color-border: #2a3448;
+
+  /* Dracma tavern palette, used only on its project card */
+  --color-parchment: #f4ecd8;
+  --color-ink: #3b3024;
+  --color-moss: #7a8b6f;
+  --color-copper: #b87333;
+  --color-wine: #7b3f3f;
+
   --font-display: "Raleway", sans-serif;
   --font-body: "Lato", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
 }
 
 body {
@@ -30,11 +43,13 @@ section {
   scroll-margin-top: 80px;
 }
 
-@keyframes particle-drift {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-20px); }
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
-.animate-particle-drift {
-  animation: particle-drift 4s ease-in-out infinite alternate;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -1,21 +1,23 @@
-# Portfolio — Rafael Ventura
+# Portfolio · Rafael Siqueira
 
-Single-page personal site: hero, about, experience, projects, contact. Rewritten from Vue 3 to
-**React 19 + TypeScript + Vite + Tailwind CSS v4**, keeping the same content and visual identity
-(dark navy/indigo/pink theme, Raleway + Lato typography).
+Single-page personal site built with **React 19, TypeScript, Vite and Tailwind CSS v4**, animated
+with **motion** (formerly Framer Motion) and a few copy-paste components from
+[Magic UI](https://magicui.design) and [React Bits](https://reactbits.dev).
 
 ## Structure
 
 ```
 src/
-  components/    # Navbar, Footer, SectionHeader, ProjectCard, TypingText, BackgroundParticles
-  sections/      # Hero, About, Experience, Projects, Contact — one per page section
-  data.ts        # skills, projects, jobs — content in one place
+  components/
+    ui/          # third-party components installed with the shadcn CLI (you own this code)
+    Navbar, Footer, SectionHeader, ProjectCard
+  sections/      # Hero, Experience, Projects, Skills, About, Contact, one per page section
+  lib/utils.ts   # cn() helper for merging Tailwind classes
+  data.ts        # all site copy in one place
   App.tsx        # composes the sections
-  main.tsx
 public/
   profile.jpeg, livros.png (favicon), resume.pdf
-server/          # separate Node/Express API (contact form + Spotify widget) — not touched in this rewrite
+server/          # separate Node/Express API, not used by the frontend
 ```
 
 ## How to run
@@ -26,12 +28,32 @@ npm run dev      # http://localhost:5173
 npm run build    # production build in dist/
 ```
 
+## Deploy
+
+Every push to `main` publishes the site to two independent hosts, so one can serve as a fallback
+if the other is down:
+
+- **GitHub Pages**: https://rafael-ventura.github.io, built by `.github/workflows/deploy-pages.yml`
+- **Vercel**: mirror, deployed by the Vercel GitHub integration
+
+The build reads `BASE_PATH` so the same code works at the root or in a subfolder.
+
+## Adding more components
+
+Magic UI, React Bits, Aceternity UI and shadcn/ui all distribute components through the shadcn
+CLI. The CLI copies the source into `src/components/ui/` instead of installing a package, so you
+can read and edit it like your own code. `components.json` tells the CLI where things go.
+
+```bash
+npx shadcn@latest add "https://magicui.design/r/number-ticker.json"
+npx shadcn@latest add "https://reactbits.dev/r/ShinyText-TS-TW"
+```
+
+Copied components sometimes assume Next.js. `magic-card.tsx` was adapted to drop `next-themes`,
+since this site is dark-only.
+
 ## Notes
 
-- No client-side routing: it's a single page with anchor navigation (`#about`, `#projects`, …),
-  matching how the previous `vue-router` setup already behaved in practice (every route
-  redirected to `/`).
-- `server/` (Node/Express, `/send-email` and `/generate-token` endpoints) wasn't touched in this
-  rewrite — it isn't called from the frontend today (its CORS config points at a different
-  domain, leftover from a template). Worth reviewing before reactivating the contact form or the
-  Spotify "now playing" widget.
+- All animations respect the visitor's reduced-motion setting through `<MotionConfig reducedMotion="user">`.
+- `server/` has CORS origins pointing at a different person's domain, leftover from a template.
+  Review it before reactivating the contact form or the Spotify widget.
