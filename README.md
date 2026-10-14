@@ -34,7 +34,7 @@ Every push to `main` publishes the site to two independent hosts, so one can ser
 if the other is down:
 
 - **GitHub Pages**: https://rafael-ventura.github.io, built by `.github/workflows/deploy-pages.yml`
-- **Vercel**: mirror, deployed by the Vercel GitHub integration
+- **Vercel**: https://rafael-siqueira.vercel.app, mirror deployed by the Vercel GitHub integration
 
 The build reads `BASE_PATH` so the same code works at the root or in a subfolder.
 
