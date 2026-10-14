@@ -1,0 +1,6 @@
+{
+  "forbidden": [
+    { "text": "—", "reason": "Site copy uses no em dashes. Use commas, periods or colons.", "paths": ["src/", "index.html"] }
+  ],
+  "prePush": "npm run build"
+}
