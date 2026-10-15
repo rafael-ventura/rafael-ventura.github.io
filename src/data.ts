@@ -86,15 +86,15 @@ export const projects: Project[] = [
     github: 'https://github.com/rafael-ventura/guilda-mensageria-microservices',
   },
   {
-    title: 'Claude Code Setup',
-    summary: 'My AI-assisted development setup for Claude Code, versioned and installable on any machine with one script.',
+    title: 'Workbench AI',
+    summary: 'A Claude Code toolkit of skills, MCP servers and guardrail hooks, versioned and installable with one script.',
     points: [
-      'Spec-driven workflow as skills: spec, plan, tasks and implement, each stopping for review',
-      'Guardian hooks that block secret file edits, commits with staged secrets and force-pushes to main',
-      'A messaging reviewer agent for idempotency, retries, poison messages and saga compensation',
+      'Eighteen skills covering spec-driven development, flow tracing, code review, tests, debugging, incidents and SQL tuning',
+      'Guardian hooks that block secret file edits, commits with staged secrets, force-pushes to main and pushes on a broken build',
+      'MCP servers for C# semantics, current library docs, NuGet packages and browser checks',
     ],
     stack: ['Claude Code', 'MCP', 'Node.js', 'PowerShell', 'Serena', 'Roslyn'],
-    github: 'https://github.com/rafael-ventura/claude-setup',
+    github: 'https://github.com/rafael-ventura/workbench-ai',
   },
 ];
 

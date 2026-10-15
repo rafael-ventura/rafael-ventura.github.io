@@ -26,3 +26,6 @@ dist-ssr
 
 # Serena MCP cache
 .serena/
+
+# Playwright MCP output
+.playwright-mcp/
